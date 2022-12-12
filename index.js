@@ -33,12 +33,7 @@ addProducts() {
     products.push(product);
     ProductManager.id++;
     }
-}
-}
-
-const isInCart = (id) => {
-return products.find((product) => product.title === title);
-};
+}}
 
 const getProducts = () => {
 console.log(products);
@@ -52,9 +47,6 @@ if (search == undefined) {
 } else {
     console.log(search);
 }
-};
-const isInProducts = (title) => {
-products.find((prod) => prod.title === title);
 };
 
 const prod1 = new ProductManager(
@@ -74,8 +66,6 @@ const prod2 = new ProductManager(
 1002,
 5
 );
-
-
 
 prod1.addProducts();
 
