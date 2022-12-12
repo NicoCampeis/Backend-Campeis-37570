@@ -42,8 +42,8 @@ console.log(products);
 const getProductsById = (id) => {
 const search = products.find((product) => product.id === id);
 
-if (search == undefined) {
-    console.log("Product not found");
+if (search === undefined) {
+    console.log("Not found");
 } else {
     console.log(search);
 }
