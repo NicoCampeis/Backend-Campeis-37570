@@ -67,8 +67,13 @@ const prod2 = new ProductManager(
 5
 );
 
+const prod3 = new ProductManager()
+
 prod1.addProducts();
 
 prod2.addProducts();
+
+prod3.addProducts() //tira undefined, pero genera el id
+;
 
 getProducts();
