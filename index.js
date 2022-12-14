@@ -27,13 +27,28 @@ addProducts() {
     const checkInCart = products.find(
     (element) => element.code === product.code
     );
-    if (checkInCart == true) {
-    console.log("error");
-    } else {
-    products.push(product);
-    ProductManager.id++;
+    if (checkInCart) {
+        console.log("Error");
     }
-}}
+    else{
+        products.push(product)
+        ProductManager.id++
+    }
+
+
+if (!product.title ||
+    !product.description ||
+    !product.price ||
+    !product.thumbnail ||
+    !product.code ||
+    !product.stock ||
+    !product.id){
+console.log("verificar campos");
+throw new Error("Los campos estan vacios") // completar campos para que no me tire errores
+
+}
+
+}};
 
 const getProducts = () => {
 console.log(products);
@@ -42,7 +57,7 @@ console.log(products);
 const getProductsById = (id) => {
 const search = products.find((product) => product.id === id);
 
-if (search === undefined) {
+if (search == undefined) {
     console.log("Not found");
 } else {
     console.log(search);
@@ -54,7 +69,7 @@ const prod1 = new ProductManager(
 "Aceite multigrado para vehiculos hasta el año 2008",
 1500,
 "imagen",
-1001,
+1002,
 3
 );
 
@@ -63,17 +78,19 @@ const prod2 = new ProductManager(
 "Aceite semi sintetico para vehiculos ",
 3000,
 "imagen",
-1002,
+1003,
 5
 );
 
-const prod3 = new ProductManager()
+ //const prod3 = new ProductManager()
 
 prod1.addProducts();
 
 prod2.addProducts();
 
-prod3.addProducts() //tira undefined, pero genera el id
-;
+//prod3.addProducts(); //tira undefined, pero genera el id
+
 
 getProducts();
+
+getProductsById(5) // declaro un id que no existe para me tire "not Found"
