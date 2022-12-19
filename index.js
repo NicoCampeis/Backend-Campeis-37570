@@ -1,8 +1,6 @@
-const { writeFile} = require('fs');
+const { writeFile} = require("fs");
 
-// const Aceites = "Lista de aceites.txt";
-
-const Aceites = [ // pide crear una clase de productos 
+const aceites= [ // pide crear una clase de productos 
     {title:"Elaion F10",
     description:"Aceite multigrado para vehiculos hasta el año 2008",
     price: 1500,
@@ -23,7 +21,7 @@ const Aceites = [ // pide crear una clase de productos
     thumbnail:"imagen",
     code: 1002,
     stock: 3},
-];
+].toString();
 
 const productsNew =[
 
@@ -33,7 +31,7 @@ const productsNew =[
     thumbnail:"imagen",
     code: 1002,
     stock: 3}
-];
+].toString();
 
 class ProductManager {
 static id = 1;
@@ -96,13 +94,14 @@ if (search == undefined) {
     console.log(search);
 }
 };
+// DESAFIO 2
 
 function callbackWriteFile(err){
     if (err) throw err;
     console.log("Agregado con exito");
-}     
+};
 
-writeFile(Aceites, callbackWriteFile);
+writeFile(aceites,"lista", callbackWriteFile);
 
 
  //DESAFIO 1
