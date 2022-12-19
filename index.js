@@ -1,16 +1,52 @@
-const products = [];
+const { writeFile} = require('fs');
+
+// const Aceites = "Lista de aceites.txt";
+
+const Aceites = [ // pide crear una clase de productos 
+    {title:"Elaion F10",
+    description:"Aceite multigrado para vehiculos hasta el año 2008",
+    price: 1500,
+    thumbnail:"imagen",
+    code: 1002,
+    stock: 3},
+
+    {title:"Elaion F10",
+    description:"Aceite multigrado para vehiculos hasta el año 2008",
+    price: 1500,
+    thumbnail:"imagen",
+    code: 1002,
+    stock: 3},
+
+    {title:"Elaion F10",
+    description:"Aceite multigrado para vehiculos hasta el año 2008",
+    price: 1500,
+    thumbnail:"imagen",
+    code: 1002,
+    stock: 3},
+];
+
+const productsNew =[
+
+    {title:"Elaion F10",
+    description:"Aceite multigrado para vehiculos hasta el año 2008",
+    price: 1500,
+    thumbnail:"imagen",
+    code: 1002,
+    stock: 3}
+];
 
 class ProductManager {
 static id = 1;
 
-constructor(title, description, price, thumbnail, code, stock) {
+constructor(title, description, price, thumbnail, code, stock, path) {
+    this.path= path // variable que pide agregar.
     this.title = title;
     this.description = description;
     this.price = price;
     this.thumbnail = thumbnail;
     this.code = code;
     this.stock = stock;
-    ProductManager.id;
+    ProductManager.id++;
 }
 
 addProducts() {
@@ -23,6 +59,7 @@ addProducts() {
     stock: this.stock,
     id: ProductManager.id,
     };
+
 
     const checkInCart = products.find(
     (element) => element.code === product.code
@@ -45,18 +82,14 @@ if (!product.title ||
     !product.id){
 console.log("verificar campos");
 throw new Error("Los campos estan vacios") // completar campos para que no me tire errores
-
 }
-
 }};
 
 const getProducts = () => {
 console.log(products);
 };
-
 const getProductsById = (id) => {
 const search = products.find((product) => product.id === id);
-
 if (search == undefined) {
     console.log("Not found");
 } else {
@@ -64,7 +97,17 @@ if (search == undefined) {
 }
 };
 
-const prod1 = new ProductManager(
+function callbackWriteFile(err){
+    if (err) throw err;
+    console.log("Agregado con exito");
+}     
+
+writeFile(Aceites, callbackWriteFile);
+
+
+ //DESAFIO 1
+
+/*const prod1 = new ProductManager(
 "Elaion F10",
 "Aceite multigrado para vehiculos hasta el año 2008",
 1500,
@@ -72,7 +115,6 @@ const prod1 = new ProductManager(
 1002,
 3
 );
-
 const prod2 = new ProductManager(
 "Elaion F30",
 "Aceite semi sintetico para vehiculos ",
@@ -82,15 +124,10 @@ const prod2 = new ProductManager(
 5
 );
 
- //const prod3 = new ProductManager()
-
 prod1.addProducts();
 
 prod2.addProducts();
 
-//prod3.addProducts(); //tira undefined, pero genera el id
-
-
 getProducts();
 
-getProductsById(5) // declaro un id que no existe para me tire "not Found"
+getProductsById(5) // declaro un id que no existe para me tire "not Found" */
