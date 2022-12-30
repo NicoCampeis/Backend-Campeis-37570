@@ -1,37 +1,6 @@
-const { writeFile} = require("fs");
+const fs = require("fs");
 
-const aceites= [ // pide crear una clase de productos 
-    {title:"Elaion F10",
-    description:"Aceite multigrado para vehiculos hasta el año 2008",
-    price: 1500,
-    thumbnail:"imagen",
-    code: 1002,
-    stock: 3},
-
-    {title:"Elaion F10",
-    description:"Aceite multigrado para vehiculos hasta el año 2008",
-    price: 1500,
-    thumbnail:"imagen",
-    code: 1002,
-    stock: 3},
-
-    {title:"Elaion F10",
-    description:"Aceite multigrado para vehiculos hasta el año 2008",
-    price: 1500,
-    thumbnail:"imagen",
-    code: 1002,
-    stock: 3},
-].toString();
-
-const productsNew =[
-
-    {title:"Elaion F10",
-    description:"Aceite multigrado para vehiculos hasta el año 2008",
-    price: 1500,
-    thumbnail:"imagen",
-    code: 1002,
-    stock: 3}
-].toString();
+const products =[]
 
 class ProductManager {
 static id = 1;
@@ -43,8 +12,50 @@ constructor(title, description, price, thumbnail, code, stock, path) {
     this.price = price;
     this.thumbnail = thumbnail;
     this.code = code;
-    this.stock = stock;
+    this.stock = stock; 
     ProductManager.id++;
+}
+
+cargarProductos(){
+    fs.writeFileSync("products.json",JSON.stringify(products),()=>{throw new Error("Se genero un error.")})
+};
+
+leerProducts(){
+    const obtenerProd = JSON.parse(fs.readFileSync("products.json", "utf-8"))
+    console.log(obtenerProd);
+};
+
+updateProd(id,nuevoProd){
+    const obtenerProd = JSON.parse(fs.readFileSync("products.json", "utf-8"))
+    obtenerProd.map((element)=>{
+        if(element.id === id){
+            element.title= nuevoProd.title,
+            element.description= nuevoProd.description,
+            element.price= nuevoProd.price,
+            element.thumbnail= nuevoProd.thumbnail,
+            element.code= nuevoProd.code,
+            element.stock=nuevoProd.stock,
+            element.id = id
+        }
+
+    })
+    fs.writeFileSync("products.json",JSON.stringify(obtenerProd),()=>{throw new Error("Se genero un error.")})
+};
+// map x cada elemeto que haya en el array te ejecuta una funcion.
+borrarProd(id){
+    const vacio= [];
+    const obtenerProd = JSON.parse(fs.readFileSync("products.json", "utf-8"))
+    obtenerProd.map((element)=>{
+        if(element.id != id){
+            vacio.push(element)
+        }
+    })
+    fs.writeFileSync("products.json",JSON.stringify(vacio),()=>{throw new Error("Se genero un error.")})
+};
+
+getProducts(){
+    const products= fs.readFileSync(this.path, "utf-8");
+    return JSON.parse(products);
 }
 
 addProducts() {
@@ -94,39 +105,11 @@ if (search == undefined) {
     console.log(search);
 }
 };
-// DESAFIO 2
 
-function callbackWriteFile(err){
-    if (err) throw err;
-    console.log("Agregado con exito");
-};
+const pM = new ProductManager();
+pM.leerProducts();
 
-writeFile(aceites,"lista", callbackWriteFile);
+pM.updateProd(4,{title:"Elaion Auro",description:"asdasdasdas",price:2000,thumbnail:"img",code:223442,stock:18})
+pM.borrarProd(4)
 
-
- //DESAFIO 1
-
-/*const prod1 = new ProductManager(
-"Elaion F10",
-"Aceite multigrado para vehiculos hasta el año 2008",
-1500,
-"imagen",
-1002,
-3
-);
-const prod2 = new ProductManager(
-"Elaion F30",
-"Aceite semi sintetico para vehiculos ",
-3000,
-"imagen",
-1003,
-5
-);
-
-prod1.addProducts();
-
-prod2.addProducts();
-
-getProducts();
-
-getProductsById(5) // declaro un id que no existe para me tire "not Found" */
+module.exports = {ProductManager};
