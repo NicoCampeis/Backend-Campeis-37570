@@ -1,0 +1,93 @@
+[
+    {
+        "title": "Elaion F30",
+        "description": "Aceite semi sintetico para vehiculos ",
+        "price": 3000,
+        "thumbnail": "imagen",
+        "code": 1003,
+        "stock": 5,
+        "id": 1
+    },
+    {
+        "title": "Elaion 4T ",
+        "description": "Aceite para motores 4 tiempo",
+        "price": 1600,
+        "thumbnail": "imagen",
+        "code": 1005,
+        "stock": 10,
+        "id": 2
+        },
+    {
+        "title": "Elaion F50",
+        "description": "Aceite sintetico 5w-40",
+        "price": 1600,
+        "thumbnail": "imagen",
+        "code": 1005,
+        "stock": 10,
+        "id": 3
+    },
+    {
+        "title": "Elaion F50E",
+        "description": "Aceite sintetico 5w-30",
+        "price": 1600,
+        "thumbnail": "imagen",
+        "code": 1005,
+        "stock": 10,
+        "id": 4
+    },
+    {
+        "title": "Elaion F10",
+        "description": "Aceite multigrado 15w40",
+        "price": 1600,
+        "thumbnail": "imagen",
+        "code": 1005,
+        "stock": 10,
+        "id": 5
+    },
+    {
+        "title": "Elaion xtravida",
+        "description": "Aceite semi sintetico 15w-40",
+        "price": 1600,
+        "thumbnail": "imagen",
+        "code": 1005,
+        "stock": 10,
+        "id": 6
+    },
+    {
+        "title": "Elaion F50J",
+        "description": "Aceite sintetico 0w-20",
+        "price": 1600,
+        "thumbnail": "imagen",
+        "code": 1005,
+        "stock": 10,
+        "id": 7
+    },
+    {
+        "title": "Azul 32",
+        "description": "Aditivo para camiones",
+        "price": 1600,
+        "thumbnail": "imagen",
+        "code": 1005,
+        "stock": 10,
+        "id": 8
+    },
+    {
+        "title": "Elaion 2T x 100 ml",
+        "description": "Aceite para motores 2 tiempo",
+        "price": 1600,
+        "thumbnail": "imagen",
+        "code": 1005,
+        "stock": 10,
+        "id": 9
+    },
+    {
+        "title": "Elaion 2T x 200 ml",
+        "description": "Aceite para motores 2 tiempo",
+        "price": 1600,
+        "thumbnail": "imagen",
+        "code": 1005,
+        "stock": 10,
+        "id": 10
+    }
+
+]
