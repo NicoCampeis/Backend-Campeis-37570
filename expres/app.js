@@ -2,7 +2,7 @@
 const express = require ('express')
 const {ProductManager} = require('./index')
 const app = express()
-const productoManager = new ProductManager()
+const productoManager = new ProductManager("products.json")
 const PORT = 8080
 
 
@@ -15,14 +15,12 @@ const {limit} = req.query
 if (limit) return res.json(products.slice(0,limit))
 else return res.json(products)
 
-
-
 })
 
 app.get('/productos/:pid', async (req,res)=>{
     const products = await productoManager.getProducts();
     const {pid} = req.params
-    const product = products.find (products => products.id === pid)
+    const product = products.find (products => parseInt(products.id) === parseInt(pid))
 
     if (product) return res.status(200).json(product)
     else return res.status(404).json({message:'Product not found'});

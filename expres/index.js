@@ -5,14 +5,14 @@ const products =[]
 class ProductManager {
 static id = 1;
 
-constructor(title, description, price, thumbnail, code, stock, path) {
+constructor(/*title, description, price, thumbnail, code, stock,*/ path) {
     this.path = path // variable que pide agregar.
-    this.title = title;
-    this.description = description;
-    this.price = price;
-    this.thumbnail = thumbnail;
-    this.code = code;
-    this.stock = stock; 
+    // this.title = title;
+    // this.description = description;
+    // this.price = price;
+    // this.thumbnail = thumbnail;
+    // this.code = code;
+    // this.stock = stock; 
     ProductManager.id++;
 }
 
@@ -102,11 +102,5 @@ if (search == undefined) {
     console.log(search);
 }
 };
-
-// const pM = new ProductManager();
-// pM.leerProducts();
-
-// pM.updateProd(4,{title:"Elaion Auro",description:"asdasdasdas",price:2000,thumbnail:"img",code:223442,stock:18})
-// pM.borrarProd(4)
 
 module.exports = {ProductManager};
