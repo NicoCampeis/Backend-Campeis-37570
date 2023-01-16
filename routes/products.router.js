@@ -1,20 +1,15 @@
 const express = require("express");
 const productsRouter = express.Router();
 const {v4: uuidv4}=require ('uuid');
+const fs = require('fs');
+// importo productmanager desde el archivo js 
+const productoManager = express.ProductManager();
 
 
+productoManager = JSON.parse(fs.readFileSync("../"))
 
-const products= [
-    {
-        nombre:'cebolla',
-        id: uuidv4()
-    },
-
-    {
-        nombre:'zanahoria',
-        id: uuidv4()
-    }
-];
+//tengo este array vacio, pero como hago para traer el mio, no me toma la ruta relativa.
+//const products= [];
 
 
 // Aca genere los endpoint
